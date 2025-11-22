@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+jinja2
+python-multipart
+
+language-tool-python
+vaderSentiment
+sentence-transformers
+torch

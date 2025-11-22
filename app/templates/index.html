@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Nirmaan AI – Communication Scorer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+  <div class="max-w-5xl mx-auto py-10 px-4">
+    <h1 class="text-3xl font-bold mb-2 text-gray-900">
+      Spoken Communication Scorer
+    </h1>
+    <p class="text-gray-600 mb-6">
+      Paste the transcript and enter the audio duration (seconds), then click <strong>Score</strong>.
+    </p>
+
+    <div class="bg-white rounded-2xl shadow p-6 mb-6">
+      <label for="transcript" class="block text-sm font-medium text-gray-700 mb-2">
+        Transcript
+      </label>
+      <textarea
+        id="transcript"
+        rows="10"
+        class="w-full border border-gray-300 rounded-xl p-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        placeholder="Paste the self-introduction transcript here..."
+      ></textarea>
+
+      <div class="mt-4 flex flex-wrap items-center gap-4">
+        <div>
+          <label for="duration-sec" class="block text-sm font-medium text-gray-700 mb-1">
+            Duration (seconds)
+          </label>
+          <input
+            type="number"
+            id="duration-sec"
+            class="border border-gray-300 rounded-xl px-3 py-1 text-sm w-28 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            placeholder="52"
+            min="1"
+          />
+        </div>
+
+        <button
+          id="score-btn"
+          class="mt-6 px-5 py-2 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-700 disabled:opacity-60"
+        >
+          Score
+        </button>
+        <span id="status" class="mt-6 text-sm text-gray-500"></span>
+      </div>
+    </div>
+
+    <div id="results" class="hidden bg-white rounded-2xl shadow p-6">
+      <div class="flex flex-wrap items-center justify-between mb-4 gap-3">
+        <div>
+          <h2 class="text-xl font-semibold text-gray-900">Results</h2>
+          <p class="text-sm text-gray-500">
+            Words: <span id="word-count"></span> · Duration: <span id="duration"></span>s · WPM: <span id="wpm"></span>
+          </p>
+          <p class="text-xs text-gray-400 mt-1">
+            Base rubric score: <span id="base-rubric-score"></span> · Semantic (0–10): <span id="semantic-score"></span>
+          </p>
+        </div>
+        <div class="text-right">
+          <p class="text-sm text-gray-500">Overall Score</p>
+          <p id="overall-score" class="text-3xl font-bold text-indigo-600"></p>
+        </div>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="min-w-full text-sm">
+          <thead>
+            <tr class="bg-gray-100 text-left">
+              <th class="px-3 py-2">Criterion</th>
+              <th class="px-3 py-2">Score</th>
+              <th class="px-3 py-2">Detail</th>
+            </tr>
+          </thead>
+          <tbody id="criteria-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
