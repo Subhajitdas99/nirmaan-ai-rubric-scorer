@@ -1,14 +1,13 @@
+torch==2.9.1
+sentence-transformers
+streamlit
+language-tool-python
+vaderSentiment
+numpy
+scikit-learn
+python-multipart
 fastapi
 uvicorn[standard]
 jinja2
-python-multipart
 
-streamlit
-
-language-tool-python
-vaderSentiment
-sentence-transformers
-torch==2.2.2 --index-url https://download.pytorch.org/whl/cpu
-numpy
-scikit-learn
 
